@@ -3,11 +3,6 @@ import useSWR from "swr";
 const API_BASE = process.env.NEXT_PUBLIC_API_BASE;
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
-const { data, error } = useSWR(
-  `${API_BASE}/api/analytics/sales-trends?period=30d`,
-  fetcher
-);
-
 import {
   LineChart,
   Line,
@@ -20,9 +15,10 @@ import {
 
 export default function SalesTrendChart() {
   const { data, error } = useSWR(
-    "/api/analytics/sales-trends?period=30d",
-    (url) => fetch(url).then((res) => res.json())
+    `${API_BASE}/api/analytics/sales-trends?period=30d`,
+    fetcher
   );
+
   if (error) return <div>Failed to load chart.</div>;
   if (!data) return <div>Loading...</div>;
 

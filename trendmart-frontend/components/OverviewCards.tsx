@@ -1,10 +1,9 @@
 import useSWR from "swr";
 const API_BASE = process.env.NEXT_PUBLIC_API_BASE;
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
-const { data, error } = useSWR(`${API_BASE}/api/analytics/overview`, fetcher);
 
 export default function OverviewCards() {
-  const { data, error } = useSWR("/api/analytics/overview", fetcher);
+  const { data, error } = useSWR(`${API_BASE}/api/analytics/overview`, fetcher);
   if (error) return <div>Failed to load metrics.</div>;
   if (!data) return <div>Loading...</div>;
 

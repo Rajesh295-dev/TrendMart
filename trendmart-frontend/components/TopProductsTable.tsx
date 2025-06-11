@@ -1,15 +1,11 @@
 import useSWR from "swr";
 const API_BASE = process.env.NEXT_PUBLIC_API_BASE;
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
-const { data, error } = useSWR(
-  `${API_BASE}/api/analytics/top-products?limit=10`,
-  fetcher
-);
 
 export default function TopProductsTable() {
   const { data, error } = useSWR(
-    "/api/analytics/top-products?limit=10",
-    (url) => fetch(url).then((res) => res.json())
+    `${API_BASE}/api/analytics/top-products?limit=10`,
+    fetcher
   );
   if (error) return <div>Failed to load products.</div>;
   if (!data) return <div>Loading...</div>;
