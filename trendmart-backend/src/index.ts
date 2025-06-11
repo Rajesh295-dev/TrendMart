@@ -26,3 +26,6 @@ app.listen(PORT, () => {
 });
 
 app.use("/api/analytics", analyticsRoutes);
+app.get("/health", (_req, res) => {
+  res.status(200).json({ status: "ok" });
+});
