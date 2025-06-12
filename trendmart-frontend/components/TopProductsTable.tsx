@@ -14,7 +14,7 @@ export default function TopProductsTable() {
     <div className="bg-white p-4 rounded-2xl shadow">
       <h2 className="text-lg font-semibold mb-4">Top Products</h2>
       <div className="overflow-x-auto">
-        <table className="min-w-full text-sm">
+        <table className="min-w-full text-sm ">
           <thead>
             <tr className="text-left text-gray-500 border-b">
               <th className="py-2">Name</th>
