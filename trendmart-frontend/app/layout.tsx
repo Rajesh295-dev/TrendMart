@@ -1,6 +1,5 @@
-// app/layout.tsx
 import "../styles/globals.css";
-import { ThemeProvider } from "../context/ThemeContext";
+import ThemeWrapper from "./clientWrapper";
 
 export default function RootLayout({
   children,
@@ -10,7 +9,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeWrapper>{children}</ThemeWrapper>
       </body>
     </html>
   );

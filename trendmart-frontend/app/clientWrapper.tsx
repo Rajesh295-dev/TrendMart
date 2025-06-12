@@ -1,17 +1,26 @@
 "use client";
 
-import { ThemeProvider } from "../context/ThemeContext";
+import { useEffect } from "react";
+import { ThemeProvider, useTheme } from "../context/ThemeContext";
 
-export default function ClientWrapper({
+function ThemeApplier({ children }: { children: React.ReactNode }) {
+  const { theme } = useTheme();
+
+  useEffect(() => {
+    document.body.className = theme; // light or dark
+  }, [theme]);
+
+  return <>{children}</>;
+}
+
+export default function ThemeWrapper({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
     <ThemeProvider>
-      <main className="ml-20 min-h-screen bg-gray-100 p-6 border-l-4 border-blue-500">
-        {children}
-      </main>
+      <ThemeApplier>{children}</ThemeApplier>
     </ThemeProvider>
   );
 }
