@@ -17,3 +17,29 @@ body.dark {
   background-color: #0f172a;
   color: white;
 }
+
+/* Always show scrollbar on overflow-x */
+.scrollbar-visible {
+  overflow-x: scroll;
+  scrollbar-width: auto; /* Firefox */
+}
+
+.scrollbar-visible::-webkit-scrollbar {
+  height: 8px; /* Chrome, Safari */
+}
+
+.scrollbar-visible::-webkit-scrollbar-thumb {
+  background: #bbb;
+  border-radius: 4px;
+}
+
+.scroll-touch-hide {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch; /* smooth scroll on iOS */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+
+.scroll-touch-hide::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
