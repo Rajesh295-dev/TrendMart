@@ -1,4 +1,5 @@
-import useSWR from "swr";
+"use client";
+import { default as useSWR } from "swr";
 
 const API_BASE = process.env.NEXT_PUBLIC_API_BASE;
 const fetcher = (url: string) => fetch(url).then((res) => res.json());

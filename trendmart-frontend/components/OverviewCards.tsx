@@ -1,4 +1,6 @@
-import useSWR from "swr";
+"use client";
+import { default as useSWR } from "swr";
+
 const API_BASE = process.env.NEXT_PUBLIC_API_BASE;
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
@@ -8,7 +10,7 @@ export default function OverviewCards() {
   if (!data) return <div>Loading...</div>;
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 ">
       <Card title="Total Revenue" value={`$${data.totalRevenue.toFixed(2)}`} />
       <Card title="Total Orders" value={data.totalOrders} />
       <Card
